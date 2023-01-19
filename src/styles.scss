@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --first-bg: #b17ca6;
+  --second-bg: rgb(18, 10, 40);
+  --card-bg: rgb(64,24,87);
+  --font-color: #FFFFFF;
+  --hover: #c18fb8;
+  --first-shadow: rgba(0, 0, 0, 0.24);
+  --second-shadow: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background-color: var(--second-bg);
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 30px;
+}
+
+.start-container,
+.memory-game,
+.winner-container {
+  max-width: 1000px;
+  background: var(--first-bg);
+  border-radius: 40px;
+}
+
+// Start Button container
+
+.start-container,
+.winner-container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 900px;
+}
+
+.start-btn {
+  width: 31rem;
+  padding: 3.25rem 4.25rem 3.25rem 5.30rem;
+  font-size: 4rem;
+  font-weight: bolder;
+  color: var(--font-color);
+  background-color: var(--first-bg);
+  border: 5px solid var(--second-bg);
+  border-radius: 40px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--hover);
+    transition: .3s;
+  }
+
+  &:active {
+    box-shadow: 9px 9px 28px 6px var(--first-shadow);
+      transform: translateY(4px);
+      transition: .3s;
+  }
+}
+
+
+// Game board container
+
+.memory-game {
+  display: none;
+  background-color: var(--second-bg);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+  padding: 1.5rem 2rem;
+  perspective: 800px;
+}
+
+.card,
+.card-front,
+.card-back {
+  width: 11.25rem;
+  height: 17.5rem;
+  border-radius: 10px;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 9px 9px 12px 6px var(--second-shadow);
+  cursor: pointer;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  pointer-events: none;
+}
+
+.card-back {
+  background-color: var(--card-bg);
+  background: linear-gradient(131deg, rgba(64,24,87,1) 11%, rgba(118,105,179,1) 63%, rgba(144,65,153,1) 100%);
+  border: 2px solid var(--second-bg);
+  backface-visibility: hidden;
+}
+
+.card-turn {
+  transform: rotateY(180deg);
+}
+
+.matched {
+  pointer-events: none;
+}
+
+
+// Winner / Moves / Reset container 
+
+.winner-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 240px 130px 130px 130px;
+  display: none;
+  
+}
+
+.winner-display {
+  font-size: 2.8rem;
+  font-weight: bolder;
+  color: var(--font-color);
+}
+
+.reset-btn {
+  margin-top: 30px;
+  width: 36rem;
+  padding: 3.25rem 1.25rem 3.25rem 2.30rem;
+  font-size: 4rem;
+  font-weight: bolder;
+  color: var(--font-color);
+  background-color: var(--first-bg);
+  border: 5px solid var(--second-bg);
+  border-radius: 40px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--hover);
+    transition: .3s;
+  }
+
+  &:active {
+    box-shadow: 9px 9px 28px 6px var(--first-shadow);
+      transform: translateY(4px);
+      transition: .3s;
+  }
+}
